@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --primary-color-frst: #2d6930;
+    --primary-color-snd: rgb(92, 209, 98);
+    --primary-color-thrd: rgba(155, 205, 97);
+    --background-transparent-color: rgb(92, 209, 98,0.3);
+    --secondary-color-frst:gray;
+    --secondary-color-snd: #d5b245;
+    --secondary-color-thrd: rgb(206, 156, 40);
+    --white:white;
+    --black:black;
+    --border: 1px solid var(--primary-color-frst);
+    --m-spacing: 38px;
+    --spacing: 28px;
+    --s-spacing:18px;
+    --xs-spacing:8px;
+    --border-radius:18px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+ul {
+    list-style: none;
+}
+
+nav > ul> li> a {
+    color:var(--primary-color-frst);
+    text-decoration: none;
+    font-size: medium;
+    border-radius:var(--border-radius);
+    padding: var(--xs-spacing);
+}
+
+nav > ul> li> a:hover{
+    color: var(--white);
+    background-color: var(--secondary-color-snd);
+}
+
+header {
+    display: grid;
+    grid-template-columns: minmax(200px, 2fr) 6fr;
+    padding: var(--spacing);
+    justify-items: flex-end;
+    align-items: center;
+}
+
+header > img {
+    width: 50%;
+    max-width: 100px;
+    margin:auto;
+    margin-left: var(--s-spacing);
+}
+
+header > nav > ul {
+    display: grid;
+    gap: var(--spacing);
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+}
+
+.menu {
+    width: var(--spacing);
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu > img {
+    width: 100%;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ nav {
+    width: 50%;
+}
+
+main > h1{
+    text-align: center;
+    color: var(--primary-color-frst);
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ section>.grid-container{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.card {
+    width: 350px;
+    min-height: 350px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    gap:20px;
+    box-shadow: 0px 6px 23px -15px var(  --primary-color-snd) ;
+    transition: transform 0.5s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card>p{
+    margin: var(--s-spacing);
+}
+
+.card > h4 {
+    font-size: 20px;
+    color: var(--primary-color-frst);
+    margin-bottom: var(--xs-spacing);
+}
+
+.card > a > img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+   
+}
+
+.card > div {
+    grid-template-columns: 1fr 1fr;
+}
+.description{
+    text-align: justify;
+    margin:0px 20px;
+}
+
+.card button{
+    cursor:pointer;
+    padding: 10px 20px;
+    margin:10px;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    background-color:var(--primary-color-thrd);
+}
+
+footer>p:first-child{
+    font-size: small;
+    text-align: center;
+    color: var(--secondary-color-frst);
+    margin-top: var(--s-spacing);
+}
+footer>p:last-child{
+    font-size: small;
+    text-align: center;
+    color: var(--secondary-color-frst);
+    margin-bottom: var(--s-spacing);
+}
+
+@media (max-width: 767px) {
+    header > nav {
+        position: absolute;
+        top: 0;
+        height: 100svh;
+        right: 0;
+        width: 0px;
+        padding-top: 120px;
+        overflow: hidden;
+        background-color:var(--primary-color-snd);
+        transition: all 0.5s;
+    }
+    a {
+        color: var(--white);
+    }
+    header > nav > ul {
+        display: grid;
+        gap: var(--m-spacing);
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        justify-items: center;
+        height: 60%;
+    }
+    .menu {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    #checkbox:checked ~ nav {
+        width: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    #checkbox:checked ~ nav {
+        width: 100%;
+        background-color: var(--secondary-color-thrd);
+    }
+    a:hover{
+        background-color: var( --primary-color-thrd);
+    }
+}
